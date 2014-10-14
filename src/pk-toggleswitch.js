@@ -41,9 +41,9 @@ var pk = pk || {};
             labelOn=opt.label && opt.label.on ? opt.label.on : 'ON',
             labelOff=opt.label && opt.label.off ? opt.label.off : 'OFF';
         el = pk.wrap(el,"<label class='pk-toggleswitch pk-noselect'></label>");        
-        el.appendChild(pk.createEl("<div class='pk-toggleswitch-indicator'></div>"));
-        el.appendChild(pk.createEl("<span class='pk-toggleswitch-off'>"+labelOff+"</span>"));
-        el.appendChild(pk.createEl("<span class='pk-toggleswitch-on'>"+labelOn+"</span>"));  
+        el.appendChild(pk.getEl("<div class='pk-toggleswitch-indicator'></div>"));
+        el.appendChild(pk.getEl("<span class='pk-toggleswitch-off'>"+labelOff+"</span>"));
+        el.appendChild(pk.getEl("<span class='pk-toggleswitch-on'>"+labelOn+"</span>"));  
     };
     return pk;
 })(pk);
