@@ -1,0 +1,49 @@
+
+.pk-toggleswitch{
+    width:100%;
+    cursor:pointer;
+    height:26px;
+    border:1px solid #808080;
+    border-radius:4px;
+    line-height:26px;
+    box-sizing:border-box;
+    display:inline-block;
+    position:relative;
+    overflow:hidden;
+}
+.pk-toggleswitch input{
+    display:none;
+}
+.pk-toggleswitch input:checked + .pk-toggleswitch-indicator{
+    left:50%;
+}
+.pk-toggleswitch input:checked ~ .pk-toggleswitch-off{
+    color:grey;
+}
+.pk-toggleswitch input ~ .pk-toggleswitch-on{
+    color:grey;
+}
+.pk-toggleswitch input:checked ~ .pk-toggleswitch-on{
+    color:#fff;
+}
+.pk-toggleswitch .pk-toggleswitch-indicator{
+    position:absolute;
+    border-radius:4px;
+    left:2px;
+    top:2px;
+    background:#000;
+    width:50%;
+    height:20px;
+    transition:left 200ms ease-in;
+}
+.pk-toggleswitch span{
+    width:50%;
+	text-transform:uppercase;
+    display:inline-block;
+    box-sizing:border-box;
+    float:left;
+    color:white;
+    position:relative;
+    text-align:center;
+    transition:color 100ms ease-in;
+}
