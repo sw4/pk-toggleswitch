@@ -1,41 +1,34 @@
 
-pk-scroll
+pk-toggleswitch
 ========
 
-[![Build Status](https://travis-ci.org/sw4/pk-scroll.svg?branch=master)](https://travis-ci.org/sw4/pk-scroll)
+[![Build Status](https://travis-ci.org/sw4/pk-toggleswitch.svg?branch=master)](https://travis-ci.org/sw4/pk-toggleswitch)
 
-Customized scrollbars written in vanilla JS, complete with jQuery and angular wrappers (where libraries detected, neither are required).
+Toggleswitch input field in vanilla JS with jQuery and Angular wrappers
 
 **Licensed under [cc by-sa 3.0](http://creativecommons.org/licenses/by-sa/3.0/) with attribution required**
 
-#####[Demo](http://sw4.github.io/pk-scroll/)
+#####[Demo](http://sw4.github.io/pk-toggleswitch/)
 
 
 ###Requires
 
-`pk-base.js` and `pk-base.css` as well as `pk-draggable.js` and `pk-draggable.css` as a precursor
+`pk-base.js` and `pk-base.css`
 
-###Features
-
-- Automatic resize handling (change in dimensions of container or content)
-- Mobile touch / drag support
-- Keyboard support
-- Mouse wheel support
-- Relies on native scroll events not positional offsets
 
 ###Usage
 
 
 #####Plain Javascript
 
-`pk.scroll({element:document.getElementById('yourEl'), axis:'xy'});`*
+`pk.toggleswitch({element:document.getElementById('yourEl'), label:{on:'Switched ON', off:'Switched OFF'}});`*
 
-*<sup>You can use any means to retrieve a DOM node to pass to `pk.scroll()`</sup>
+*<sup>You can use any means to retrieve a DOM node to pass to `pk.toggleswitch()`</sup>
 
 #####jQuery
 
-`$('yourEl').pkScroll('xy');`
+Initiate with `$('yourEl').pkToggleswitch();`, having the attributes `label-on` (optional) or `label-off` (optional) on the element.
 
 #####Angular
 
-Simply include `pk-scroll` as an application dependancy, add the attribute `pk-scroll` and set to either `x`, `y`, or `xy` on the relevant element and the `pkScroll` directive will automatically apply.
+Simply include `pk-toggleswitch` as an application dependancy, add the attributes `pk-toggleswitch` (required), `label-on` (optional) or `label-off` (optional) on the relevant element and the `pkToggleswitch` directive will automatically apply.
