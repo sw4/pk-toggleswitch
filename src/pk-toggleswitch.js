@@ -4,12 +4,12 @@ var pk = pk || {};
     if (typeof jQuery === 'object') {
         // jquery available
         jQuery.fn.extend({
-            pkToggleSwitch: function (axis) {
+            pkToggleSwitch: function () {
                 pk.toggleswitch({
                     element: this[0],
                     label:{
-                        on:el[0].getAttribute('label-on'),
-                        off:el[0].getAttribute('label-off')   
+                        on:this[0].getAttribute('label-on'),
+                        off:this[0].getAttribute('label-off')   
                     }
                 });
             }
