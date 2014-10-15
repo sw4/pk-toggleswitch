@@ -26,7 +26,7 @@ var pk = pk || {};
             toggled:function(val){
                 if(val===undefined){return inputEl.hasAttribute('checked') ? true : false;}
                 if(val){ 
-                    inputEl.setAttribute('checked')=true;
+                    inputEl.setAttribute('checked','true');
                 }else{
                     inputEl.removeAttribute('checked'); 
                 }
