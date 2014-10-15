@@ -5,12 +5,13 @@ var pk = pk || {};
             labelOn=opt.label && opt.label.on ? opt.label.on : 'ON',
             labelOff=opt.label && opt.label.off ? opt.label.off : 'OFF',
             listeners=opt.listeners === undefined ? {} : opt.listeners,
-            inputValue=opt.toggled ? 'checked' : '',
+            inputValue=(opt.checked || el.getAttribute('checked')) ? 'checked' : '',
+            inputDisabled=(opt.disabled || el.getAttribute('disabled')) ? 'disabled' : '',
             inputName=opt.name || el.getAttribute('name') || 'pk-toggleswitch-'+pk.getRand(1,999),
             inputTabIndex=opt.tabindex || el.getAttribute('tabindex') || 0;         
         
-         var tpl = "<label class='pk-toggleswitch pk-noselect' tabindex='"+inputTabIndex+"'>\
-            <input type='checkbox' "+inputValue+" name='"+inputName+"'/>\
+        var tpl = "<label class='pk-toggleswitch pk-noselect "+(inputDisabled ? 'pk-disabled' : '')+"' tabindex='"+inputTabIndex+"'>\
+            <input type='checkbox' "+inputValue+" "+inputDisabled+" name='"+inputName+"'/>\
             <div class='pk-toggleswitch-indicator'></div>\
             <span class='pk-toggleswitch-off'>"+labelOff+"</span>\
             <span class='pk-toggleswitch-on'>"+labelOn+"</span>\
@@ -29,12 +30,13 @@ var pk = pk || {};
         var obj={
             0:el,
             toggled:function(val){
-                if(val===undefined){return inputEl.hasAttribute('checked') ? true : false;}
-                if(val){ 
-                    inputEl.setAttribute('checked','true');
-                }else{
-                    inputEl.removeAttribute('checked'); 
+                return pk.attribute(inputEl, 'checked', val);
+            },
+            disabled:function(val){
+                if(val!==undefined){
+                    pk.toggleClass(el, 'pk-disabled', val);
                 }
+                return pk.attribute(inputEl, 'disabled', val);
             }
         };
         return obj;
