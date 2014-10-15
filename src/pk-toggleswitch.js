@@ -36,7 +36,7 @@ var pk = pk || {};
                     inputEl.removeAttribute('checked'); 
                 }
             }
-        }
+        };
         return obj;
         
     };
