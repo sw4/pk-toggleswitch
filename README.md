@@ -33,7 +33,8 @@ Returns a new slider object.
 element: \\ DOM element to replace with a slider - the elements attributes are carried over
 axis: \\ can be `x` or `y`, determines vertical or horizontal slider
 name: \\ the name to use for the slider input form element (can also be set as attribute on original element)
-toggled: \\ boolean, whether the toggle is on or off
+toggled: \\ boolean, whether the toggle is on or off (can also be set as attribute on original element)
+disabled: \\ boolean, whether the toggle is disabled (can also be set as attribute on original element)
 tabindex: \\ tabindex value (can also be set as attribute on original element) - defaults to 0
 listeners: \\ object consisting of regular event functions for input elements
 ```
@@ -44,3 +45,7 @@ listeners: \\ object consisting of regular event functions for input elements
 
 Where `toggleswitch` is a toggleswitch object and value is either blank/null to get the current state, or a boolean value to set it
 
+
+`toggleswitch.disabled(value)`
+
+Where `toggleswitch` is a toggleswitch object and value is either blank/null to get the current state, or a boolean value to set it
