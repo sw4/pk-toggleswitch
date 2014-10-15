@@ -25,8 +25,12 @@ var pk = pk || {};
             0:el,
             toggled:function(val){
                 if(val===undefined){return inputEl.hasAttribute('checked') ? true : false;}
-                val ? inputEl.setAttribute('checked')=true : inputEl.removeAttribute('checked'); 
-            }
+                if(val){ 
+                    inputEl.setAttribute('checked')=true;
+                }else{
+                    inputEl.removeAttribute('checked'); 
+                }
+            };
         }
         return obj;
         
