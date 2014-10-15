@@ -30,7 +30,7 @@ var pk = pk || {};
                 }else{
                     inputEl.removeAttribute('checked'); 
                 }
-            };
+            }
         }
         return obj;
         
