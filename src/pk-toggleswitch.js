@@ -21,6 +21,13 @@ var pk = pk || {};
         if(opt.listeners){
             pk.bindListeners(opt.listeners, inputEl);
         }        
+        pk.bindEvent("mousewheel", el, function(e){
+            var offset=true;
+            if (e.wheelDelta > 0 || e.detail < 0) {
+                offset= false;
+            }
+            obj.toggled(offset);         
+        }); 
         var obj={
             0:el,
             toggled:function(val){
