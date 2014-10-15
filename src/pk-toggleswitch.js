@@ -17,10 +17,8 @@ var pk = pk || {};
         </label>";      
         
         el= pk.replaceEl(el, tpl);
-        var inputEl=el.children[0];        
-        if(opt.listeners){
-            pk.bindListeners(opt.listeners, inputEl);
-        }        
+        var inputEl=el.children[0];   
+        pk.bindListeners(listeners, inputEl);
         pk.bindEvent("mousewheel", el, function(e){
             var offset=true;
             if (e.wheelDelta > 0 || e.detail < 0) {
