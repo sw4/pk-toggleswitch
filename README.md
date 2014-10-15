@@ -10,25 +10,36 @@ Toggleswitch input field in vanilla JS with jQuery and Angular wrappers
 
 #####[Demo](http://sw4.github.io/pk-toggleswitch/)
 
+###Features
+
+- HTML form compliant (input value can be submitted like with any other `input` element
 
 ###Requires
 
-`pk-base.js` and `pk-base.css`
+- `pk-base.js`
+- `pk-base.css`
 
 
 ###Usage
 
+`pk.toggleswitch(opt);`
 
-#####Plain Javascript
+Returns a new slider object.
 
-`pk.toggleswitch({element:document.getElementById('yourEl'), label:{on:'Switched ON', off:'Switched OFF'}});`*
+`opt` is an object consisting of:
 
-*<sup>You can use any means to retrieve a DOM node to pass to `pk.toggleswitch()`</sup>
+```
+element: \\ DOM element to replace with a slider - the elements attributes are carried over
+axis: \\ can be `x` or `y`, determines vertical or horizontal slider
+name: \\ the name to use for the slider input form element (can also be set as attribute on original element)
+toggled: \\ boolean, whether the toggle is on or off
+tabindex: \\ tabindex value (can also be set as attribute on original element) - defaults to 0
+listeners: \\ object consisting of regular event functions for input elements
+```
 
-#####jQuery
+###Methods
 
-Initiate with `$('yourEl').pkToggleswitch();`, having the attributes `label-on` (optional) or `label-off` (optional) on the element.
+`toggleswitch.toggled(value)`
 
-#####Angular
+Where `toggleswitch` is a toggleswitch object and value is either blank/null to get the current state, or a boolean value to set it
 
-Simply include `pk-toggleswitch` as an application dependancy, add the attributes `pk-toggleswitch` (required), `label-on` (optional) or `label-off` (optional) on the relevant element and the `pkToggleswitch` directive will automatically apply.
