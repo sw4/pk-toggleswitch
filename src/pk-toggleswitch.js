@@ -1,49 +1,35 @@
 var pk = pk || {};
-(function (pk) {
-    // HELPERS FOR jQUERY+ANGULAR
-    if (typeof jQuery === 'object') {
-        // jquery available
-        jQuery.fn.extend({
-            pkToggleSwitch: function () {
-                pk.toggleswitch({
-                    element: this[0],
-                    label:{
-                        on:this[0].getAttribute('label-on'),
-                        off:this[0].getAttribute('label-off')   
-                    }
-                });
-            }
-        });
-    }
-    if (typeof angular === 'object') {
-        // angular available
-        (
-        function () {
-            angular.module('pk-toggleswitch', ['ng'])
-                .directive('pkToggleswitch', function () {
-                return {
-                    restrict: 'A',
-                    link: function (scope, el) {
-                        pk.toggleswitch({
-                            element: el[0],
-                            label:{
-                                on:el[0].getAttribute('label-on'),
-                                off:el[0].getAttribute('label-off')   
-                            }
-                        });
-                    }
-                };
-            });
-        })();
-    }
+(function (pk) {    
     pk.toggleswitch = function (opt) {
         var el=opt.element,
             labelOn=opt.label && opt.label.on ? opt.label.on : 'ON',
-            labelOff=opt.label && opt.label.off ? opt.label.off : 'OFF';
-        el = pk.wrapEl(el,"<label class='pk-toggleswitch pk-noselect'></label>");        
-        el.appendChild(pk.createEl("<div class='pk-toggleswitch-indicator'></div>"));
-        el.appendChild(pk.createEl("<span class='pk-toggleswitch-off'>"+labelOff+"</span>"));
-        el.appendChild(pk.createEl("<span class='pk-toggleswitch-on'>"+labelOn+"</span>"));  
+            labelOff=opt.label && opt.label.off ? opt.label.off : 'OFF',
+            listeners=opt.listeners === undefined ? {} : opt.listeners,
+            inputValue=opt.toggled ? 'checked' : '',
+            inputName=opt.name || el.getAttribute('name') || 'pk-toggleswitch-'+pk.getRand(1,999),
+            inputTabIndex=opt.tabindex || el.getAttribute('tabindex') || 0;         
+        
+         var tpl = "<label class='pk-toggleswitch pk-noselect' tabindex='"+inputTabIndex+"'>\
+            <input type='checkbox' "+inputValue+" name='"+inputName+"'/>\
+            <div class='pk-toggleswitch-indicator'></div>\
+            <span class='pk-toggleswitch-off'>"+labelOff+"</span>\
+            <span class='pk-toggleswitch-on'>"+labelOn+"</span>\
+        </label>";      
+        
+        el= pk.replaceEl(el, tpl);
+        var inputEl=el.children[0];        
+        if(opt.listeners){
+            pk.bindListeners(opt.listeners, inputEl);
+        }        
+        var obj={
+            0:el,
+            toggled:function(val){
+                if(val===undefined){return inputEl.hasAttribute('checked') ? true : false;}
+                val ? inputEl.setAttribute('checked')=true : inputEl.removeAttribute('checked'); 
+            }
+        }
+        return obj;
+        
     };
     return pk;
 })(pk);
