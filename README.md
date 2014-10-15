@@ -12,7 +12,8 @@ Toggleswitch input field in vanilla JS with jQuery and Angular wrappers
 
 ###Features
 
-- HTML form compliant (input value can be submitted like with any other `input` element
+- HTML form compliant (input value can be submitted like with any other input element
+- Mousewheel support
 
 ###Requires
 
