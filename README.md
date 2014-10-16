@@ -17,8 +17,8 @@ Toggleswitch input field in vanilla JS with jQuery and Angular wrappers
 
 ###Requires
 
-- `pk-base.js`
-- `pk-base.css`
+- `pk-core.js`
+- `pk-core.css`
 
 
 ###Usage
