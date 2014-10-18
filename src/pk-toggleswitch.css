@@ -18,10 +18,10 @@
     left:50%;
 }
 .pk-toggleswitch input:checked ~ .pk-toggleswitch-off{
-    color:grey;
+    color:#c4c4c4;
 }
 .pk-toggleswitch input ~ .pk-toggleswitch-on{
-    color:grey;
+    color:#c4c4c4;
 }
 .pk-toggleswitch input:checked ~ .pk-toggleswitch-on{
     color:#fff;
@@ -42,7 +42,7 @@
 .pk-toggleswitch span{
     width:50%;
 	text-transform:uppercase;
-    display:inline-block;
+    display:block;
     box-sizing:border-box;
     float:left;
     color:white;
